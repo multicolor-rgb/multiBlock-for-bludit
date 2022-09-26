@@ -90,4 +90,6 @@ gap: 5px;
 </ul>
 
 
- 
+<form  method="GET" style="background:#fafafa;padding:10px;border:solid 1px #ddd;margin-top:10px;">
+            <input type="submit" value="<?php echo $L->get('cache-thumbnail');?>" class="cleanthumb btn btn-danger btn-sm"   name="cleanthumb">
+            </form>

@@ -93,6 +93,18 @@
 
         public function adminController(){
 
+
+        
+            
+             if(isset($_GET['cleanthumb'])){
+            
+            
+                mbCleanThumb();
+            
+            
+             };
+            
+
          
             
 
@@ -313,8 +325,151 @@ if ($folder_exists) {
 //function
 
 
+///v.2
+
+//cleancache
+
+function mbCleanThumb(){
+
+    $imager = glob(PATH_PLUGINS.'multiBlock/thumb/*', GLOB_BRACE);
+
+    foreach($imager as $img){
+
+        unlink($img);
+
+    };
 
 
+ };
+
+
+ //
+
+
+//dropdown 
+
+function mbdropdown($value){
+
+	global $getmb;
+	echo  str_replace("^"," ",$getmb->$value);
+ 
+ };
+
+//dropdonwend
+
+
+ ///thumb generate - new on 2.0
+
+ function mbthumb($value,$width){
+
+	
+	global $getmb;
+	global $SITEURL;
+ 
+  
+ 
+ $file = file_get_contents($getmb->$value);
+ 
+ $folder =PATH_PLUGINS."multiBlock/thumb/";
+ 
+
+ $extension =  pathinfo($getmb->$value, PATHINFO_EXTENSION);
+
+
+
+ $base = pathinfo($getmb->$value, PATHINFO_BASENAME);
+ 
+ $finalfile = $folder.$width."-".$base ;
+
+ 
+ if(file_exists($finalfile)){
+
+ }else{
+ 
+	$origPic = imagecreatefromstring($file);
+ 
+	$width_orig=imagesx($origPic);
+	$height_orig=imagesy($origPic);
+	
+	$height = $height_orig  * 1.77;
+
+
+	$ratio_orig = $width_orig/$height_orig;
+	
+	if ($width/$height > $ratio_orig) {
+	   $width = $height*$ratio_orig;
+	} else {
+	   $height = $width/$ratio_orig;
+	}
+	
+	
+	$thumbnail = imagecreatetruecolor($width,$height);
+	
+	imagecopyresampled($thumbnail,$origPic,0,0,0,0,$width,$height,$width_orig,$height_orig);
+	
+
+	if($extension == 'jpeg' || $extension == 'jpg'){
+		imagejpeg($thumbnail, $finalfile);
+	}elseif($extension == 'png'){
+		imagepng($thumbnail, $finalfile);
+	}elseif($extension == 'webp'){
+		imagewebp($thumbnail, $finalfile);
+	}elseif($extension == 'gif'){
+		imagegif($thumbnail, $finalfile);
+	}
+	elseif($extension == 'bmp'){
+		imagebmp($thumbnail, $finalfile);
+	}else{
+		imagejpeg($thumbnail, $finalfile);
+	}
+
+
+
+	
+	imagedestroy($origPic);
+	imagedestroy($thumbnail);
+ };
+
+
+  
+  
+ echo str_replace(PATH_PLUGINS,DOMAIN.'/bl-plugins/',$finalfile);
+	   
+ }
+ 
+ 
+
+ /// end thumb generated
+
+///
+
+
+
+
+function mbOrder(){
+    global $counterOrder; if($counterOrder==''){
+        $counterOrder = 0;
+    };
+
+    echo "data-id='".$counterOrder."' ";
+    $counterOrder++;
+
+};
+
+
+function mbvaluetext($value){
+    global $getmb;
+              echo $getmb->$value;	
+           
+       };
+      
+      
+      function mbvalue($value){
+    
+          global $getmb;
+          echo html_entity_decode( $getmb->$value);	
+       
+       };
 
 
 function getMultiBlock($category,$orderid=''){
@@ -328,31 +483,10 @@ function getMultiBlock($category,$orderid=''){
 	$orders = @file_get_contents(GSDATAOTHERPATH.'multiBlock/'.$category.'/order.txt');
  
 	 
-	function mbOrder(){
-		global $counterOrder; if($counterOrder==''){
-			$counterOrder = 0;
-		};
-
-		echo "data-id='".$counterOrder."' ";
-		$counterOrder++;
-	
-	};
 
 
 
-	function mbvaluetext($value){
-  global $getmb;
-			echo $getmb->$value;	
-		 
-	 };
-	
-	
-	function mbvalue($value){
-  
-		global $getmb;
-		echo html_entity_decode( $getmb->$value);	
-	 
-	 };
+
 	
  
  

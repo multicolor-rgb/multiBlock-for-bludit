@@ -173,7 +173,7 @@ echo '<div style="width:100%;margin-top:20px;">
     <input type="hidden" id="jstokenCSRF" name="tokenCSRF" value="'.$tokenCSRF.'">
 
     <input type="text" style="display:none" class="array" name="array" value="'. @file_get_contents(PATH_CONTENT . 'multiBlock/'.$_GET['newmulticategory'].'/order.txt').'">
-    <input type="submit" class="button-3" value="'.$L->get('save-order').' 🎢" name="saveorder">
+    <input type="submit" class="button-3 btn btn-dark" value="'.$L->get('save-order').' 🎢" name="saveorder">
     </form>
     ';
     

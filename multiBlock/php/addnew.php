@@ -32,20 +32,8 @@ justify-content: end;
 gap: 5px;
 }
 
-.mb_btngeneral,.mb_btntemplate,.backtolist{
-    all: unset;
-    background: #000;
-    color:#fff;
-    padding:10px 15px;
-    border:none;
-    color:#fff !important;
-    text-decoration: none !important;
-    cursor: pointer;
-}
 
-.backtolist{
-    background: #222;
-}
+
 
 .mb_inputs{
     margin: 0 !important;
@@ -116,8 +104,7 @@ padding: 5px;
 
 
 .mb_newinput{
-    background: #000 ;
-    color: #fff;
+ 
     display: inline-block;
     border:none;
     padding:10px 15px;
@@ -150,9 +137,9 @@ input{
  
 
 <div class="mb_buttons"  style="width:100%;background:#fafafa;display:flex; justify-content:flex-end;padding:5px;box-sizing:border-box;border:solid 1px #ddd;margin-bottom:20px;">
-<button class="mb_btngeneral"><?php echo $L->get("general-btn");?></button>
-<button class="mb_btntemplate"><?php echo $L->get("template-btn");?></button>
-<a href="<?php echo DOMAIN;?>/admin/plugin/multiblock" class="backtolist"><?php echo $L->get("back-btn");?></a>
+<button class="mb_btngeneral btn btn-primary"><?php echo $L->get("general-btn");?></button>
+<button class="mb_btntemplate btn btn-primary"><?php echo $L->get("template-btn");?></button>
+<a href="<?php echo DOMAIN;?>/admin/plugin/multiblock" class="backtolist btn btn-danger"><?php echo $L->get("back-btn");?></a>
 </div>
 
 
@@ -165,7 +152,7 @@ input{
 
 <div class="mb_addbtndiv">
 
-<button class="mb_newinput"><?php echo $L->get("add-new-btn");?> ➕</button>
+<button class="mb_newinput btn btn-primary"><?php echo $L->get("add-new-btn");?> ➕</button>
 
 </div>
 
@@ -217,6 +204,7 @@ foreach ($multicategory as $category){
 <option>color</option>
 <option>date</option>
 <option>image</option>
+<option>dropdown</option>
 </select>
 <button class="mb_close">X</button>
 </li>
@@ -256,6 +244,33 @@ foreach ($multicategory as $category){
 
 <br>
 
+ 
+
+<b><?php echo $L->get("dropdown-placeholder");?></b><br>
+
+<code style="border:solid 1px #ddd;background:#fafafa;padding:5px;display:inline-block;margin:10px 0;"> &#60;?php mbdropdown('valuename');?&#62; </code> <br>
+
+
+<b><?php echo $L->get("dropdown-value");?></b>
+ <br>
+
+
+ <code style="border:solid 1px #ddd;background:#fafafa;padding:5px;display:inline-block;margin:10px 0;">    example 1|example 2|example 3</code> <br>
+
+    
+ <br>
+
+
+
+ <b><?php echo $L->get("thumb-placeholder");?></b><br>
+
+<code style="border:solid 1px #ddd;background:#fafafa;padding:5px;display:inline-block;margin:10px 0;"> &#60;?php mbthumb('imageslug',300 <?php echo $L->get("different-width");?>);?&#62; </code> <br>
+
+
+
+
+
+
 <hr>
 <br>
 
@@ -288,7 +303,7 @@ if(isset($_GET['categoryname'])){
 
 <div style="width:100%;background:#fafafa;display:flex; justify-content:flex-end;padding:5px;box-sizing:border-box;border:solid 1px #ddd;margin-top:20px;">
 
-<input type="submit"  name="savecat" class="mb_submit" value="<?php echo $L->get("save-cat");?>">
+<input type="submit"  name="savecat" class="mb_submit btn btn-dark" value="<?php echo $L->get("save-cat");?>">
 
 </div>
 
@@ -357,6 +372,7 @@ btn.preventDefault();
     <option>color</option>
     <option>date</option>
     <option>image</option>
+    <option>dropdown</option>
 </select>
 <button class="mb_close">X</button>
 </li>`;

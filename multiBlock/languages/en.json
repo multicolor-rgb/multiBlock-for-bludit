@@ -40,7 +40,12 @@
         "multiblockin" 	: "Blocks in this Section:",
         "choosesection" : "Choose Section",
         "paypal"		: "Support my work via PayPal :) Thanks!",
-        "question"      : "Are you sure?"
+        "question"      : "Are you sure?",
+        "cache-thumbnail": "clean cache thumbnails",
+        "dropdown-placeholder" : "Dropdown placeholder:",
+        "dropdown-value" : "If you want use a dropdown, default value is:",
+        "thumb-placeholder" : "Thumbnails placeholder:",
+        "different-width" : "or different number width"
     
 
 

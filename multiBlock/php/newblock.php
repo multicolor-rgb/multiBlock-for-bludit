@@ -61,16 +61,21 @@ $dater = json_decode($datas);
     }
 
     .mb_img {
+        margin:10px 0;
         display: grid;
-        grid-template-columns: 1fr 200px;
+        grid-template-columns: 80px 1fr 200px;
+        gap:15px;
         align-items: center;
     }
 
+    .mb_img img{
+        border:solid 1px #ddd;
+        outline: solid 1px #ddd;
+        outline-offset: 5px;
+    }
+
     .mb_img .mb_fotobtn {
-        height: 40px;
-        border: none;
-        background: #000;
-        color: #fff;
+      
     }
 </style>
 
@@ -170,9 +175,12 @@ font-size: 15px;">'.$category->title.' :</p>
 
         <div class="mb_img">
 
+        <img src="'.$valer.'" style="width:80px;height:80px;object-fit:cover;">
+
+
         <input type="text" class="mb_foto foto mbinput" name="'.str_replace(" ","",$category->label).'" value="'.$valer.'">
         
-        <button class="mb_fotobtn choose-image">'.$L->get("choose-image").'</button>
+        <button class="mb_fotobtn choose-image btn btn-primary btn-sm" style="height:40px">'.$L->get("choose-image").'</button>
 
         </div>
     
@@ -242,7 +250,41 @@ font-size: 15px;display:inline-block;">'.$category->title.' :</p>
             <textarea class="mbinput" style="width:100%;height:250px;" name="'.str_replace(" ","",$category->label).'">'.html_entity_decode($valer).'</textarea>';
         
      
-    }else{
+    }elseif($category->select == 'dropdown'){
+
+        
+
+        
+
+
+        $ars = explode( '|', $category->value );
+      
+        echo '<p style="margin: 0;
+        margin-top: 0px;
+      margin-top: 20px;
+      font-weight: 400px;
+      font-size: 15px;display:inline-block;">'.$category->title.' :</p>';
+      
+      echo '<select style="width:100%;padding:10px;" class="'.str_replace(" ","",$category->label).'" name="'.str_replace(" ","",$category->label).'">';
+      
+          foreach($ars as $sel){
+   
+           
+  
+              echo '<option value="'.str_replace(" ","^",$sel).'" >'.$sel.'</option>';
+  
+          }
+  
+      echo'</select>';
+  
+  
+   echo '<script>
+   
+   document.querySelector("select.'.str_replace(" ","",$category->label).'").value = "'.str_replace(" ","^",$valer).'"; </script>';
+      
+      
+      
+      }else{
 
         
      
@@ -275,7 +317,7 @@ font-size: 15px;">'.$category->title.' :</p>
 <div style="backgorund:#fafafa;border:solid 1px #ddd;padding:10px;box-sizing:border-box;display:flex;margin-top:10px;">
 <input
         type="submit"
-        name="saveblock"
+        name="saveblock" class="btn btn-dark"
         style="width:200px;background:#000;color:#fff;margin:0; border:none;" value="<?php echo $L->get("update");?>">
 </div>
 </form>
