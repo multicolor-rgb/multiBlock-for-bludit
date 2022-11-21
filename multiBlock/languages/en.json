@@ -1,0 +1,53 @@
+{
+    "plugin-data":
+    {
+        "name": "MultiBlock 🧱",
+        "description": "With this plugin you can create every block with custom fields what you want."
+    },
+
+
+        "multiblock": "MutliBlock",
+        "multiblocksettings" : "MutliBlock Settings",
+        "section" 		: "Section",
+        "add-new-category" : "Add new Section",
+        "category-place-holder" : "Section name",
+        "general-btn"	: "General",
+        "template-btn" 	: "Template",
+        "back-btn"		: "Back to Section List",
+        "add-new-btn" 	: "Add new field",
+        "add-new-btn2" 	: "Add New",
+        "id" 			: "ID",
+        "field-name" 	: "Field Name",
+        "slug" 			: "Slug",
+        "default-value" 	: "Default Value",
+        "field-type" 	: "Field Type",
+        "template1" 	: "Placeholder codes for display in page templates",
+        "template2" 	: "Default Placeholder:",
+        "template3" 	: "Wysiwyg Placeholder:",
+        "template4" 	: "If you want to force list order (default is random), place in root element of template:",
+        "template5" 	: "Place this into page template:",
+        "template6" 	: "Place this if you want to force list order:",
+        "save-cat" 		: "Save Section",
+        "delete" 		: "Delete",
+        "edit" 			: "Edit",
+        "edit-block" 	: "Edit Block",
+        "block-title" 	: "Block Title",
+        "options-mb" 		: "Options",
+        "choose-image" 	: "Choose image...",
+        "Update" 		: "Update",
+        "save-order" 	: "Save order",
+        "multiblock-section" : "MultiBlock Sections",
+        "multiblockin" 	: "Blocks in this Section:",
+        "choosesection" : "Choose Section",
+        "paypal"		: "Support my work via PayPal :) Thanks!",
+        "question"      : "Are you sure?",
+        "cache-thumbnail": "clean cache thumbnails",
+        "dropdown-placeholder" : "Dropdown placeholder:",
+        "dropdown-value" : "If you want use a dropdown, default value is:",
+        "thumb-placeholder" : "Thumbnails placeholder:",
+        "different-width" : "or different number width"
+    
+
+
+
+}
