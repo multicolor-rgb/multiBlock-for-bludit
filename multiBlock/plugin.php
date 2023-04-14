@@ -183,7 +183,7 @@ if(isset($_GET['deletecat'])){
     unlink(PATH_CONTENT."multiBlock/category/".$_GET['deletecat'].".json");
     unlink(PATH_CONTENT."multiBlock/category/".$_GET['deletecat'].".txt");
    
-    echo '<script> location.replace("'.DOMAIN.'/admin/plugin/multiblock");</script>';
+    echo '<script> location.replace("'.DOMAIN_ADMIN.'plugin/multiblock");</script>';
 
 
     function removeDir($path) {
@@ -532,11 +532,3 @@ $counterOrder = 0;
 
 
 };
-
-
-
-
-
-
-
-?>

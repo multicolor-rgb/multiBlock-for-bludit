@@ -124,7 +124,7 @@ input{
 
 <h3>MultiBlock - <?php echo $L->get("add-new-category");?></h3>
 
-<form method="POST" action="<?php echo DOMAIN;?>/admin/plugin/multiblock"  >
+<form method="POST" action="<?php echo DOMAIN_ADMIN;?>/plugin/multiblock"  >
 <input type="hidden" id="jstokenCSRF" name="tokenCSRF" value="<?php echo $tokenCSRF;?>">
 
 <input type="text" style="display:none" value="<?php if(isset($_GET['categoryname'])){echo str_replace(" ","-",$_GET['categoryname']);};?>" name="check">
@@ -139,7 +139,7 @@ input{
 <div class="mb_buttons"  style="width:100%;background:#fafafa;display:flex; justify-content:flex-end;padding:5px;box-sizing:border-box;border:solid 1px #ddd;margin-bottom:20px;">
 <button class="mb_btngeneral btn btn-primary"><?php echo $L->get("general-btn");?></button>
 <button class="mb_btntemplate btn btn-primary"><?php echo $L->get("template-btn");?></button>
-<a href="<?php echo DOMAIN;?>/admin/plugin/multiblock" class="backtolist btn btn-danger"><?php echo $L->get("back-btn");?></a>
+<a href="<?php echo DOMAIN_BASE;?>/admin/plugin/multiblock" class="backtolist btn btn-danger"><?php echo $L->get("back-btn");?></a>
 </div>
 
 
